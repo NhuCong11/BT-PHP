@@ -12,6 +12,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -21,12 +22,15 @@ html {
   scroll-behavior: smooth;
   font-size: 62.5%;
 }
+
 html::-webkit-scrollbar {
   width: 8px;
 }
+
 html::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
 }
+
 html::-webkit-scrollbar-track {
   background-color: #fff;
 }
@@ -37,6 +41,7 @@ body {
   font-size: 1.4rem;
   max-width: 100vw;
 }
+
 h1,
 h2,
 h3,
@@ -44,43 +49,54 @@ h4,
 h5 {
   font-family: 'Montserrat', sans-serif;
 }
+
 a,
 a:hover {
   text-decoration: none;
 }
+
 .w-70 {
   width: 70rem;
 }
+
 .w-90 {
   width: 110rem;
 }
+
 .section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .section-header {
   font-weight: 700;
   font-size: 3.5rem;
   margin: 2.5rem 3rem;
   text-align: center;
 }
+
 .container {
   display: flex;
   justify-content: center;
 }
-.container > .content {
+
+.container>.content {
   max-width: 114rem;
 }
+
 @media screen and (max-width: 768px) {
+
   .w-70,
   .w-90 {
     width: 95vw;
   }
+
   .section-header {
     font-size: 3rem;
   }
 }
+
 @media screen and (max-width: 576px) {
   .section-header {
     font-size: 2.6rem;
@@ -95,22 +111,27 @@ a:hover {
   flex-direction: column;
   align-items: center;
 }
+
 #header #logo-img {
   width: 25rem;
   margin: 0.8rem 0;
 }
+
 #header .btn-menu {
   display: none;
 }
+
 #header .navbar {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 #header .navbar .nav-item {
   padding: 1rem 1.5rem 1.5rem;
 }
+
 #header .navbar .nav-item .nav-link {
   font-weight: 500;
   text-transform: uppercase;
@@ -119,24 +140,29 @@ a:hover {
   color: rgba(0, 0, 0, 0.5);
   font-family: Barlow;
 }
+
 #header .navbar .nav-item .nav-link.active,
 #header .navbar .nav-item .nav-link:hover {
   color: var(--text-color);
   font-weight: 600;
 }
+
 @media screen and (max-width: 992px) {
   #header .navbar .nav-item .nav-link {
     font-size: 1.6rem;
     letter-spacing: 0.05rem;
   }
+
   #header {
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem 2rem;
   }
+
   #header #logo-img {
     width: 15rem;
   }
+
   #header .btn-menu {
     display: block;
     position: relative;
@@ -150,6 +176,7 @@ a:hover {
     border: none;
     background-color: #ee4d2d;
   }
+
   #header .navbar {
     position: fixed;
     opacity: 0;
@@ -163,6 +190,7 @@ a:hover {
     background-color: #fff;
     box-shadow: 0 0 0.7rem var(--main-color);
   }
+
   #header .navbar::after {
     content: '';
     position: absolute;
@@ -176,6 +204,7 @@ a:hover {
     z-index: -1;
     transition: all 0.2s;
   }
+
   #header .navbar.active {
     opacity: 1;
     visibility: visible;
@@ -191,16 +220,19 @@ a:hover {
   position: relative;
   overflow: hidden;
 }
+
 #hero .hero-pc {
   width: 99.5vw;
   position: relative;
   overflow: hidden;
 }
+
 #hero .hero-img {
   width: 100%;
   object-fit: cover;
   z-index: -10;
 }
+
 #hero .hero-caption {
   width: 100%;
   position: absolute;
@@ -212,6 +244,7 @@ a:hover {
   justify-content: flex-end;
   padding-bottom: 2rem;
 }
+
 #hero .hero-caption .slide-lbl {
   color: #fff;
   font-weight: 800;
@@ -222,6 +255,7 @@ a:hover {
   white-space: wrap;
   text-align: center;
 }
+
 #hero .hero-caption .slide-desc {
   color: #fff;
   font-weight: 800;
@@ -232,6 +266,7 @@ a:hover {
   margin-bottom: 1.5rem;
   text-align: center;
 }
+
 #hero .hero-caption .btn-slide {
   background-color: var(--main-color);
   color: #fff;
@@ -242,14 +277,17 @@ a:hover {
   margin-bottom: 1rem;
   cursor: pointer;
 }
+
 @media screen and (max-width: 992px) {
   #hero .hero-mobile {
     display: block;
   }
+
   #hero .hero-img {
     height: 90vh;
     object-fit: cover;
   }
+
   #hero .hero-pc {
     display: none;
   }
@@ -264,16 +302,15 @@ a:hover {
   column-gap: 3rem;
   margin-bottom: 3rem;
 }
+
 #about-brand .about-content .row:nth-child(even) .about-content-left {
   order: 2;
 }
-#about-brand
-  .about-content
-  .row:nth-child(even)
-  .about-content-left
-  .about-brand-title {
+
+#about-brand .about-content .row:nth-child(even) .about-content-left .about-brand-title {
   text-align: left;
 }
+
 #about-brand .about-content .row .about-brand-title {
   font-weight: 500;
   font-size: 3rem;
@@ -282,18 +319,22 @@ a:hover {
   margin-bottom: 2.5rem;
   text-align: right;
 }
+
 #about-brand .about-content .row p {
   font-size: 1.8rem;
   font-weight: 500;
 }
+
 #about-brand .about-content .row img {
   width: 100%;
 }
+
 @media screen and (max-width: 768px) {
   #about-brand .about-content .row .about-brand-title {
     font-size: 2.6rem;
     margin-bottom: 1.7rem;
   }
+
   #about-brand .about-content p {
     font-size: 1.1rem;
     font-weight: 200;
@@ -313,6 +354,7 @@ a:hover {
   padding: 0 1.5rem;
   gap: 3rem;
 }
+
 #about-system .about-system-content .col-3 {
   width: 25%;
   display: flex;
@@ -321,22 +363,26 @@ a:hover {
   gap: 1rem;
   transform: translateY(-7rem);
 }
+
 #about-system .about-system-content .col-3 img {
   width: 100%;
   background-color: #fff;
   padding: 2rem;
 }
+
 #about-system .about-system-content .col-3 p.about-sys-title {
   text-align: center;
   font-weight: 700;
   font-size: 2.2rem;
 }
+
 #about-system .about-system-content .col-3 p.about-sys-spotlight {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 2.2rem;
   text-align: center;
 }
+
 #about-system .about-system-content .col-3 p.about-sys-desc {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
@@ -345,24 +391,29 @@ a:hover {
   font-weight: 600;
   margin-bottom: 0;
 }
+
 @media screen and (max-width: 992px) {
   #about-system .section-header {
     margin-bottom: 0;
   }
+
   #about-system .about-system-content {
     width: 95vw;
   }
 }
+
 @media screen and (max-width: 768px) {
   #about-system .about-system-content {
     flex-direction: column;
     justify-content: stretch;
     align-items: center;
   }
+
   #about-system .about-system-content .col-3 {
     width: 80%;
     text-align: center;
   }
+
   #about-system .about-system-content .col-3 img {
     width: 55%;
     margin-top: 2rem;
@@ -379,32 +430,39 @@ a:hover {
   column-gap: 3rem;
   row-gap: 3rem;
 }
+
 .opening-mobile {
   display: none;
 }
+
 .opening-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 @media screen and (max-width: 992px) {
   .opening-pc {
     width: 85vw;
   }
 }
+
 @media screen and (max-width: 768px) {
   .opening-pc {
     width: 90vw;
   }
 }
+
 @media screen and (max-width: 576px) {
   .opening-pc {
     display: none;
   }
+
   .opening-mobile {
     display: block;
   }
 }
+
 /* ------------------------------------
   # About register form 
 ------------------------------------- */
@@ -416,6 +474,7 @@ a:hover {
   align-items: center;
   padding: 2.5rem 3rem;
 }
+
 .register .register-title {
   font-weight: 800;
   color: #fff;
@@ -423,17 +482,20 @@ a:hover {
   font-size: 2.8rem;
   text-align: center;
 }
+
 .register .register-desc {
   font-weight: 500;
   font-size: 2rem;
   color: #fff;
   text-align: center;
 }
+
 .register .register-desc label {
   font-weight: 700;
   font-size: 2.6rem;
   font-family: 'Montserrat', sans-serif;
 }
+
 .register .register-form {
   display: flex;
   align-items: center;
@@ -442,6 +504,7 @@ a:hover {
   width: 40rem;
   margin-top: 3rem;
 }
+
 .register .register-form input {
   width: 65%;
   padding: 1rem 1.5rem;
@@ -450,10 +513,12 @@ a:hover {
   border: none;
   outline: none;
 }
+
 .register .register-form input:focus {
   border: 0.3rem solid hsl(208, 75%, 75%);
   border-right: none;
 }
+
 .register .register-form button {
   width: 35%;
   padding: 1rem 1.5rem;
@@ -465,20 +530,24 @@ a:hover {
   color: #fff;
   cursor: pointer;
 }
+
 @media screen and (max-width: 576px) {
   .register .register-title {
     font-size: 2.6rem;
   }
+
   .register .register-form {
     width: 100%;
     display: block;
     text-align: center;
   }
+
   .register .register-form input {
     width: 100%;
     border-top-right-radius: 5rem;
     border-bottom-right-radius: 5rem;
   }
+
   .register .register-form button {
     border-top-left-radius: 5rem;
     border-bottom-left-radius: 5rem;
@@ -487,6 +556,7 @@ a:hover {
     white-space: nowrap;
   }
 }
+
 /* ------------------------------------
   # About collaborate 
 ------------------------------------- */
@@ -494,6 +564,7 @@ a:hover {
   display: flex;
   justify-content: center;
 }
+
 .colla-content {
   max-width: 114rem;
   display: grid;
@@ -501,6 +572,7 @@ a:hover {
   column-gap: 3rem;
   padding: 0 5rem 5rem;
 }
+
 .colla-content .colla-item {
   display: flex;
   justify-content: space-between;
@@ -508,19 +580,23 @@ a:hover {
   gap: 3rem;
   margin-bottom: 3rem;
 }
+
 .colla-content .colla-item:nth-child(even) {
   flex-direction: row-reverse;
 }
+
 .colla-content .colla-item img {
   width: 20rem;
   object-fit: contain;
 }
+
 .colla-content .colla-item .colla-infor {
   width: calc(100% - 20rem);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .colla-content .colla-item .colla-infor .colla-lbl {
   display: block;
   width: 5rem;
@@ -534,6 +610,7 @@ a:hover {
   text-align: center;
   background-color: var(--main-color);
 }
+
 .colla-content .colla-item .colla-infor .colla-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
@@ -542,38 +619,47 @@ a:hover {
   text-align: center;
   color: hsl(13, 100%, 45%);
 }
+
 .colla-content .colla-item .colla-infor .colla-desc {
   font-size: 1.6rem;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
+
 @media screen and (max-width: 992px) {
   .colla-content {
     display: block;
   }
+
   .colla-content .colla-item:nth-child(even) {
     flex-direction: row;
   }
 }
+
 @media screen and (max-width: 576px) {
   .colla-content .colla-item {
     flex-direction: column;
     align-items: center;
   }
+
   .colla-content .colla-item:nth-child(even) {
     flex-direction: column;
     align-items: center;
   }
+
   .colla-content .colla-item img {
     width: 15rem;
   }
+
   .colla-content .colla-item .colla-infor {
     width: 100%;
   }
+
   .colla-content .colla-item .colla-infor .colla-lbl {
     display: none;
   }
+
   .colla-content .colla-item .colla-infor .colla-title {
     margin: 0 0 1.5rem;
   }
@@ -588,30 +674,36 @@ a:hover {
   padding: 0 2rem 3rem;
   gap: 2rem;
 }
+
 .register-content .register-left {
   width: calc(50% - 2rem);
   box-shadow: -0.5rem 0rem 2rem hsl(218, 95%, 85%);
   padding-bottom: 1rem;
 }
+
 .register-content .register-left img {
   width: 100%;
   object-fit: contain;
 }
+
 .register-content .register-left h4 {
   font-size: 2.5rem;
   font-weight: 700;
   margin: 1rem 0;
   padding: 0 2rem;
 }
+
 .register-content .register-left p {
   font-size: 1.5rem;
   line-height: 1.4;
   font-weight: 500;
   padding: 0 2rem;
 }
+
 .register-content .register-left p.list {
   line-height: 1.6;
 }
+
 .register-content .register-right {
   background: hsl(39, 60%, 65%);
   width: 50%;
@@ -620,6 +712,7 @@ a:hover {
   padding: 2rem 1.5rem;
   text-align: center;
 }
+
 .register-content .register-right .frm-title {
   text-align: center;
   font-weight: 600;
@@ -627,10 +720,12 @@ a:hover {
   font-size: 2.6rem;
   margin-bottom: 2rem;
 }
+
 .register-content .register-right .row {
   margin-bottom: 1.5rem;
   text-align: left;
 }
+
 .register-content .register-right .row input,
 textarea,
 select {
@@ -642,18 +737,22 @@ select {
   font-size: 1.4rem;
   margin-top: 0.7rem;
 }
+
 .register-content .register-right .row label {
   font-size: 1.6rem;
   font-weight: 500;
 }
+
 .register-content .register-right .row input:focus,
 textarea:focus,
 select:focus {
   border: 0.3rem solid hsl(218, 95%, 85%);
 }
+
 .register-content .register-right .row textarea {
   height: 15rem;
 }
+
 .register-content .register-right .row .slcInvestment option {
   font-size: 1.6rem;
   padding: 1.5rem 0.7rem;
@@ -661,6 +760,7 @@ select:focus {
   outline: none;
   background: var(--main-color);
 }
+
 .register-content .register-right button {
   padding: 1rem 1.5rem;
   width: 60%;
@@ -670,6 +770,7 @@ select:focus {
   font-size: 1.6rem;
   cursor: pointer;
 }
+
 @media screen and (max-width: 768px) {
   .register-content {
     display: flex;
@@ -677,11 +778,13 @@ select:focus {
     align-items: center;
     padding: 0 2rem;
   }
+
   .register-content .register-left,
   .register-content .register-right {
     width: 100%;
   }
 }
+
 /* ------------------------------------
   # customer satisfaction
 ------------------------------------- */
@@ -692,31 +795,38 @@ select:focus {
   align-items: center;
   margin-bottom: 3rem;
 }
+
 .customer-satisfaction .content img {
   width: 60rem;
   object-fit: contain;
 }
+
 .customer-satisfaction .content h4 {
   width: 45rem;
   text-align: center;
   font-size: 2.4rem;
   margin: 1.5rem 0;
 }
+
 .customer-satisfaction .content p {
   font-size: 1.5rem;
 }
+
 @media screen and (max-width: 768px) {
   .customer-satisfaction .content {
     width: 95vw;
   }
+
   .customer-satisfaction .content img {
     width: 100%;
   }
+
   .customer-satisfaction .content h4 {
     width: 80%;
     font-size: 2rem;
   }
 }
+
 /* ------------------------------------
   # partners
 ------------------------------------- */
@@ -724,11 +834,13 @@ select:focus {
   max-width: 70rem;
   padding: 0 2rem;
 }
+
 .partners .content h4 {
   text-align: center;
   font-size: 2.6rem;
   margin: 0 0 1.5rem;
 }
+
 .partners .content div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -736,15 +848,18 @@ select:focus {
   row-gap: 3rem;
   margin-bottom: 3rem;
 }
+
 .partners .content div.partners-wallet {
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
 }
+
 .partners .content div img {
   width: 100%;
   object-fit: contain;
   box-shadow: 0rem 0rem 0.7rem hsl(218, 95%, 85%);
 }
+
 @media screen and (max-width: 576px) {
   .partners .content div {
     column-gap: 2rem;
@@ -762,6 +877,7 @@ footer {
   background-position: center;
   color: #fff;
 }
+
 footer .footer-wrap {
   background: rgba(0, 0, 0, 0.5);
   z-index: 20;
@@ -770,19 +886,23 @@ footer .footer-wrap {
   flex-direction: column;
   align-items: center;
 }
+
 footer .footer-main {
   display: flex;
   gap: 3rem;
   border-bottom: 0.1rem solid #fff;
   align-items: flex-start;
 }
+
 footer .footer-bottom {
   display: block;
 }
+
 footer .footer-main .footer-logo {
   width: 18rem;
   object-fit: contain;
 }
+
 footer .footer-main .footer-title {
   font-size: 2rem;
   margin-bottom: 2rem;
@@ -790,34 +910,42 @@ footer .footer-main .footer-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
+
 footer .footer-main .footer-line {
   margin-bottom: 2rem;
   font-size: 1.6rem;
 }
+
 footer .footer-main .footer-line svg {
   width: 1.1rem;
   color: #fff;
 }
+
 footer .footer-main .social {
   display: flex;
   align-items: center;
 }
+
 footer .footer-main .social svg {
   width: 2.4rem;
   margin-right: 2rem;
 }
+
 footer .footer-main .dowload-app {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+
 footer .footer-main ul {
   list-style: none;
 }
+
 footer .footer-main ul li {
   margin-bottom: 1.2rem;
 }
+
 footer .footer-main ul li a {
   color: #fff;
   font-size: 1.2rem;
@@ -825,11 +953,13 @@ footer .footer-main ul li a {
   font-weight: 500;
   letter-spacing: 0.05rem;
 }
+
 footer .footer-main .dowload-app img {
   width: 15rem;
   object-fit: contain;
   margin-right: 2rem;
 }
+
 footer .footer-bottom {
   display: flex;
   align-items: center;
@@ -837,29 +967,36 @@ footer .footer-bottom {
   margin-top: 1.5rem;
   gap: 5rem;
 }
+
 footer .footer-bottom div {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   text-align: center;
 }
+
 footer .footer-bottom .right {
   margin-left: auto;
 }
+
 @media screen and (max-width: 992px) {
   footer .footer-main .footer-logo {
     width: 15rem;
   }
+
   footer .footer-main .footer-line {
     font-size: 1.4rem;
   }
+
   footer .footer-main .footer-title {
     font-size: 1.8rem;
   }
+
   footer .footer-main .dowload-app img {
     width: 11rem;
   }
 }
+
 @media screen and (max-width: 768px) {
   footer .footer-main {
     display: grid;
@@ -884,13 +1021,16 @@ footer .footer-bottom .right {
   animation: ring 1.5s ease infinite;
   z-index: 1000;
 }
+
 @keyframes ring {
   0% {
     transform: rotate(-45deg);
   }
+
   50% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(-45deg);
   }
