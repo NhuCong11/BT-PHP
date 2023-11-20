@@ -65,7 +65,7 @@ function Regist() {
         'account_register',
         JSON.stringify(Account_properties)
       );
-      window.location.href = 'login.html';
+      window.location.href = './login.php';
     } else {
       alert('Tài khoản đã tồn tại');
     }

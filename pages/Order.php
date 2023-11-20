@@ -57,12 +57,8 @@
                 </div>
             </div>
             <div class="user-button" id="user">
-                <!-- <img
-            src="../assets/images/Order/logo_icon.png"
-            id="user-avatar"
-            alt=""
-          />; -->
-                <!-- <a href="login.html" class="loggin-btn">Login</a> -->
+                <!-- <img src="../assets/images/Order/logo_icon.png" id="user-avatar" alt="" />; -->
+                <a href="./login.php" class="loggin-btn">Login</a>
             </div>
         </div>
     </div>
@@ -433,8 +429,6 @@
             class="fa-sharp fa-solid fa-arrow-up"></i></a>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="../javascript/order.js"></script>
-    <script src="../javascript/login.js"></script>
 </body>
 
 </html>

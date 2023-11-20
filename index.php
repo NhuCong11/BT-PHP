@@ -222,7 +222,7 @@
             </div>
         </div>
 
-        <a href="./html/Order.html"><button class="btn-show-more">XEM TẤT CẢ</button></a>
+        <a href="./pages/Order.php"><button class="btn-show-more">XEM TẤT CẢ</button></a>
     </section>
     <!-- products section ends -->
 

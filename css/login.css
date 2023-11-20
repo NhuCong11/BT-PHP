@@ -1,168 +1,256 @@
-:root {
-  --border-color: hsl(40, 55%, 76%);
-  --main-color: hsl(40, 55%, 66%);
-  --text-color: hsl(40, 95%, 35%);
+/* Animated Wave Background Style  */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+  overflow: hidden;
 }
 
-/* ------------------------------------
-    # General
-  ------------------------------------- */
+.ocean {
+  height: 5%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #015871;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+      margin-left: 0;
+  }
+  100% {
+      margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+      transform: translate3d(0,-25px,0);
+  }
+  50% {
+      transform: translate3d(0,5px,0);
+  }
+}
+
+/* Login Section Style */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-}
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-html::-webkit-scrollbar {
-  width: 5px;
-}
-html::-webkit-scrollbar-thumb {
-  background-color: var(--main-color);
-}
-html::-webkit-scrollbar-track {
-  background-color: #fff;
-}
-
-a,
-a:hover {
-  text-decoration: none;
 }
 
 body {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  width: 100vw;
-  height: 100vh;
-  background: url('../assets/images/Login/north_background_login_desktop.png')
-    no-repeat;
-  background-position: center;
-  background-size: cover;
-  font-family: 'Raleway', sans-serif;
-}
-img {
-  overflow-clip-margin: content-box;
-  overflow: clip;
-}
-.wrap-popup-login-content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-}
-.popup-login-content {
-  width: 500px;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: white;
-  border-radius: 5px;
-  padding: 40px 120px;
-  background-image: url('../assets/images/Login/register_banner_mobile.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: bottom center;
-}
-.login-description {
-  display: none;
-  text-align: center;
-  margin: 16px 0;
-}
-.logo-toco {
-  width: 200px;
-  object-fit: contain;
-  margin-bottom: 40px;
-}
-.login-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
-input {
-  border: none;
-  outline: none;
-  padding: 10px 15px 10px 10px;
-  border-bottom: 1px solid var(--main-color);
-  width: 100%;
-  margin-bottom: 10px;
-}
-.forgot-password {
   font-family: 'Montserrat', sans-serif;
-  text-align: right;
-  color: var(--text-color);
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-}
-.btn-yellow {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: 7px 15px;
-  background-color: var(--main-color);
-  color: #fff;
-  font-size: 16px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  border-radius: 20px;
-  text-align: center;
-  cursor: pointer;
-  margin: 20px 0;
-}
-.sugget-text {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  height: 100vh;
+  margin: -20px 0 50px;
+  margin-top: 20px;
 }
-.sugget-text .text {
-  font-size: 13px;
-  font-weight: 500;
+
+h1 {
+  font-weight: bold;
+  margin: 0;
 }
-.sugget-text .link {
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--text-color);
-  margin-top: 0;
+
+p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: .5px;
+  margin: 20px 0 30px;
 }
-.input-err {
-  color: #f42525;
-  font-size: 13px;
-  font-weight: 500;
-  text-align: left;
+
+span {
+  font-size: 12px;
 }
-.sugget-text a {
-  font-weight: 600;
+
+a {
+  color: #0e263d;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.container {
+  background: #fff;
+  border-radius: 90px;
+  box-shadow: 30px 14px 28px rgba(0, 0, 5, .2), 0 10px 10px rgba(0, 0, 0, .2);
+  position: relative;
+  overflow: hidden;
+  opacity: 85%;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  transition: 333ms;
+}
+
+
+.form-container form {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding:  0 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: blue;
-  margin-top: 30px;
 }
-@media screen and (max-width: 576px) {
-  .popup-login-content {
-    width: 95vw;
-    height: 90vh;
-    padding: 20px 60px;
-  }
-  .logo-toco {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-  .sugget-text a {
-    margin-top: 10px;
-  }
+
+
+.form-container input {
+  background: #eee;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+.form-container input:hover {
+  transform: scale(101%);
+}
+
+button {
+  border-radius: 50px;
+  box-shadow: 0 1px 1px ;
+  border: 1px solid #008ecf;
+  background: #008ecf;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background: transparent;
+  border-color: #fff;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all .6s ease-in-out;
+}
+
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  z-index: 1;
+  opacity: 0;
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform .6s ease-in-out;
+  z-index: 100;
+}
+
+.overlay {
+  background: #ff416c;
+  background: linear-gradient(to right, #008ecf, #008ecf) no-repeat 0 0 / cover;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateY(0);
+  transition: transform .6s ease-in-out;
+}
+
+.overlay-panel {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform .6s ease-in-out;
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateY(0);
+}
+
+.overlay-left {
+  transform: translateY(-20%);
+}
+
+/* Move signin to right */
+.container.right-panel-active .sign-in-container {
+  transform: translateY(100%);
+}
+
+/* Move overlay to left */
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+/* Bring signup over signin */
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Move overlay back to right */
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+/* Bring back the text to center */
+.container.right-panel-active .overlay-left {
+  transform: translateY(0);
+}
+
+/* Same effect for right */
+.container.right-panel-active .overlay-right {
+  transform: translateY(20%);
 }
