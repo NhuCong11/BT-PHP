@@ -194,24 +194,6 @@ function renderSearch(results) {
 inputSearch.addEventListener("keyup", handleSearch);
 
 /**
- * Xử lý user
- */
-const reloadUser = () => {
-    let userLogin = JSON.parse(sessionStorage.getItem("account_login")) || [];
-    let user = document.getElementById("user");
-    if (userLogin.length == 0) {
-        user.innerHTML = `<a href="./login.php" class="loggin-btn">Login</a>`;
-    } else {
-        user.innerHTML = `
-        <a href="./login.php" class="user-btn">
-          <img src="../assets/images/Order/logo_icon.png" id="user-avatar" alt=""/>
-        </a>
-        `;
-    }
-};
-window.addEventListener("load", reloadUser);
-
-/**
  * Chức năng ẩn hiện product container
  */
 $(".order-container-header").click(function () {

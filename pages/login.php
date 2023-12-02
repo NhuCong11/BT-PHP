@@ -1,3 +1,34 @@
+<?php
+session_start();
+$conn = new mysqli("localhost", "root", "", "mydatabase");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_POST['signIn'])) {
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+
+    $sql = "SELECT * FROM users WHERE email='" . $email . "' AND password='" . $password . "' LIMIT 1";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $_SESSION['user'] = $row; // Store user data in session
+            header('Location: Order.php'); // Redirect to dashboard after successful login
+            exit();
+        }
+    } else {
+        echo '<script>
+        alert("Tài khoản hoặc mật khẩu không đúng");
+        </script>';
+        header('Location: login.php');
+    }
+    $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,41 +51,33 @@
     <section>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                <form action="#">
+                <form action="" method="POST">
                     <h1>Sign Up</h1>
                     <span>Or use your Email for registration</span>
                     <label>
-                        <input type="text" placeholder="Name" />
+                        <input type="text" name="name" placeholder="Name" />
                     </label>
                     <label>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" name="email" placeholder="Email" />
                     </label>
                     <label>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Password" />
                     </label>
-                    <button style="margin-top: 9px">Sign Up</button>
+                    <input class="inputSignUp" id="inputSignUp" type="submit" value="Sign Up" name="signUp" style="margin-top: 9px; Width: 150px;">
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                <form action="#">
+                <form action="" method="POST">
                     <h1>Sign in</h1>
-                    <div class="social-container">
-                        <a href="https://Github.com/YasinDehfuli" target="_blank" class="social"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://Codepen.io/YasinDehfuli" target="_blank" class="social"><i
-                                class="fab fa-codepen"></i></a>
-                        <a href="mailto:Ydehfuli@gmail.com" target="_blank" class="social"><i
-                                class="fab fa-google"></i></a>
-                    </div>
                     <span> Or sign in using E-Mail Address</span>
                     <label>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" name="email" placeholder="Email" />
                     </label>
                     <label>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Password" />
                     </label>
                     <a href="#">Forgot your password?</a>
-                    <button>Sign In</button>
+                    <input class="inputSignIn" id="inputSignIn" type="submit" value="Sign In" name="signIn" style="margin-top: 9px; Width: 150px">
                 </form>
             </div>
             <div class="overlay-container">
