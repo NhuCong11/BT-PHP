@@ -14,18 +14,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="module" src="../javascript/orderGenerate.js"></script>
     <link rel="stylesheet" href="../css/Order.css" />
 </head>
 
 <body>
+
     <!-- =========== Order header ============= -->
     <div class="order-header" id="order-header">
         <a href="../index.php" class="order-logo">
             <img src="../assets/images/Order/logo.png" alt="Trang chu" />
         </a>
         <div class="search-box">
-            <form action="" class="order-search">
+            <form action="" method="POST" class="order-search">
                 <ion-icon name="search-outline" id="btn-search"></ion-icon>
                 <input type="text" class="input-search" id="input-search" placeholder="Tìm kiếm sản phẩm..."
                     autocomplete="off" />
@@ -69,76 +69,33 @@
                 <i class="fa-solid fa-bars btn-menu-content"></i>
             </button>
             <div class="order-catagories-container">
-                <a href="#order-catogory1" class="scrollto active">
-                    <span class="order-catagories-title">Món nổi bật</span>
-                    <span>25</span>
-                </a>
-                <a href="#order-catogory2" class="scrollto">
-                    <span class="order-catagories-title">Instant Milk Tea</span>
-                    <span>4</span>
-                </a>
-                <a href="#order-catogory3" class="scrollto">
-                    <span class="order-catagories-title">Trà Sữa</span>
-                    <span>15</span>
-                </a>
-                <a href="#order-catogory4" class="scrollto">
-                    <span class="order-catagories-title">Fresh Fruit Tea</span>
-                    <span>10</span>
-                </a>
-                <a href="#order-catogory5" class="scrollto">
-                    <span class="order-catagories-title">Macchiato Cream Cheese</span>
-                    <span>7</span>
-                </a>
-                <a href="#order-catogory6" class="scrollto">
-                    <span class="order-catagories-title">Sữa chua béo</span>
-                    <span>2</span>
-                </a>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "mydatabase");
+
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $categories = ['order_hots' => 'Món nổi bật', 'instant' => 'Instant Milk Tea', 'order_milk_tea' => 'Trà Sữa', 'order_fresh_fruit' => 'Fresh Fruit Tea', 'order_macchiato_cream' => 'Macchiato Cream Cheese', 'order_sua_chua' => 'Sữa chua béo'];
+
+                foreach ($categories as $table => $title) {
+                    $sql = "SELECT COUNT(*) as count FROM $table";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_assoc();
+                    echo "<a href='#$table' class='scrollto'>
+                    <span class='order-catagories-title'>$title</span>
+                    <span>{$row['count']}</span>
+                    </a>";
+                }
+
+                $conn->close();
+                ?>
             </div>
         </div>
-        <div class="order-content">
-            <div class="order-catagory order-catogory1" id="order-catogory1">
-                <h2 class="order-container-header">
-                    Món nổi bật
-                    <ion-icon name="chevron-down-outline" class="btn-collapse"></ion-icon>
-                </h2>
-                <section class="order-container"></section>
-            </div>
-            <div class="order-catagory order-catogory2" id="order-catogory2">
-                <h2 class="order-container-header">
-                    Instant Milk Tea
-                    <ion-icon name="chevron-down-outline" class="btn-collapse"></ion-icon>
-                </h2>
-                <section class="order-container"></section>
-            </div>
-            <div class="order-catagory order-catogory3" id="order-catogory3">
-                <h2 class="order-container-header">
-                    Trà sữa
-                    <ion-icon name="chevron-down-outline" class="btn-collapse"></ion-icon>
-                </h2>
-                <section class="order-container"></section>
-            </div>
-            <div class="order-catagory order-catogory4" id="order-catogory4">
-                <h2 class="order-container-header">
-                    Fresh Fruit Tea
-                    <ion-icon name="chevron-down-outline" class="btn-collapse"></ion-icon>
-                </h2>
-                <section class="order-container"></section>
-            </div>
-            <div class="order-catagory order-catogory5" id="order-catogory5">
-                <h2 class="order-container-header">
-                    Macchiato Cream Cheese
-                    <ion-icon name="chevron-down-outline" class="btn-collapse"></ion-icon>
-                </h2>
-                <div class="order-container"></div>
-            </div>
-            <div class="order-catagory order-catogory6" id="order-catogory6">
-                <h2 class="order-container-header">
-                    Sữa Chua Béo
-                    <ion-icon name="chevron-down-outline" class="btn-collapse"></ion-icon>
-                </h2>
-                <div class="order-container"></div>
-            </div>
-        </div>
+
+        <?php
+        include('./product.php');
+        ?>
     </div>
 
     <div class="wrap-popup" scroll="no">

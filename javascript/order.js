@@ -1,11 +1,3 @@
-import {
-    order_hots_data,
-    instant_data,
-    order_fresh_fruit_data,
-    order_macchiato_cream_data,
-    order_milk_tea_data,
-    order_sua_chua_data,
-} from "../assets/data/product_data.js";
 const CART_DATA = "cart_data";
 const select = (el, all = false) => {
     el = el.trim();
@@ -147,12 +139,18 @@ onscroll(window, () => {
 
 // Xử lý chức năng tìm kiếm
 // Xử lý chức năng tìm kiếm
+let dataSearch = [];
+fetch("http://localhost/MyProject/pages/order_hots_data.php")
+    .then((response) => response.json())
+    .then((data) => (dataSearch = data))
+    .catch((error) => console.error("Error:", error));
+
 let results = [],
     searchResult = document.querySelector("#search-result");
 function handleSearch() {
     var searchValue = inputSearch.value.trim();
     if (searchValue != "") {
-        results = order_hots_data.filter((product) => {
+        results = dataSearch.filter((product) => {
             return product.title
                 .toLowerCase()
                 .includes(searchValue.toLowerCase());
@@ -242,12 +240,13 @@ let card = select("#card");
 on("click", "#cart", () => {
     card.classList.toggle("active");
 });
+
 /**
  * Xử lý chức năng ẩn hiện popup
  */
 let wrapPopup = select(".wrap-popup");
 /**
- * Hàm xử lý sự kiện đong popup
+ * Hàm xử lý sự kiện đong popup`
  */
 const closePopup = () => {
     wrapPopup.classList.remove("active");
@@ -276,6 +275,7 @@ function handleProductClick() {
     // Ẩn card
     card.classList.remove("active");
 }
+
 $(".product").click(handleProductClick);
 
 /**
