@@ -26,8 +26,26 @@ if (isset($_POST['signIn'])) {
         </script>';
         header('Location: login.php');
     }
-    $conn->close();
 }
+
+if (isset($_POST['signUp'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+
+    $sql = "INSERT INTO users (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $password . "')";
+    if ($conn->query($sql) === TRUE) {
+        echo '<script>
+        alert("Đăng ký thành công");
+        </script>';
+        header('Location: login.php');
+    } else {
+        echo '<script>
+        alert("Đăng ký thất bại");
+        </script>';
+    }
+}
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +71,7 @@ if (isset($_POST['signIn'])) {
             <div class="form-container sign-up-container">
                 <form action="" method="POST">
                     <h1>Sign Up</h1>
-                    <span>Or use your Email for registration</span>
+                    <span>Use your Email for registration</span>
                     <label>
                         <input type="text" name="name" placeholder="Name" />
                     </label>
