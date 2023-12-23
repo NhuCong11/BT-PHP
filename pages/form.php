@@ -1,3 +1,35 @@
+<?php
+// Get the values from the form
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$investment = $_POST['invest'];
+
+// Create a connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "mydatabase";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare and bind
+$stmt = $conn->prepare("INSERT INTO franchise (name, email, phone, address, investment) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $name, $email, $phone, $address, $investment);
+
+// Execute the statement
+$stmt->execute();
+
+$stmt->close();
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

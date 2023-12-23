@@ -23,14 +23,12 @@
                     }
                     echo "<div class='product' id='{$row['id']}'>
                     <img
-                        src='{$row['image']}'
+                        src='../assets/images/Order/{$row['image']}'
                         alt=''
                         class='product-thumb'
                     />
                     <div class='product-desc'>
-                        <h3 class='product-name'>
-                            {$row['title']}
-                        </h3>
+                        <h3 class='product-name'>{$row['title']}</h3>
                         <div class='price'>
                             <span class='price-discount'>{$row['discount']}</span>
                             <span class='cost'>{$row['price']}</span>

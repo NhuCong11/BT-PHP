@@ -56,7 +56,12 @@ session_start();
                             <span class="card-ss2-three">=</span>
                             <span class="card-ss2-four">0đ</span>
                         </div>
-                        <button class="button-card">Thanh toán</button>
+                        <?php
+
+                        if (isset($_SESSION['user'])) { // Check if user is logged in
+                            echo '<a href="cart.php" id="button-card" class="button-card">Thanh toán</a>'; // Display login button
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

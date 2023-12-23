@@ -169,7 +169,7 @@ function renderSearch(results) {
             return `
         <div class="search-result-item">
         <img
-          src="${product.image}"
+          src="../assets/images/Order/${product.image}"
           class="result-item-image product-thumb"
           alt=""
         />
@@ -537,7 +537,7 @@ window.addEventListener("DOMContentLoaded", setUpItems(CART_DATA));
 function addToCard() {
     productAdd.id = new Date().getTime().toString();
     productAdd.img = itemAddImg.src;
-    productAdd.title = itemAddTitle.innerHTML;
+    productAdd.title = itemAddTitle.innerText;
     productAdd.quantity = amount;
     productAdd.price = itemPrice.toFixed(3);
     console.log(productAdd.price + " " + itemPrice + " " + totalPrice);
